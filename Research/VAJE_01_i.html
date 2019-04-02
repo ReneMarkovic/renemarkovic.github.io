@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>VAJE_01_(II)</title>
+<title>VAJE_01_(I)</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11750,9 +11750,6 @@ div#notebook {
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="VAJE-01-(II)">VAJE 01 (II)<a class="anchor-link" href="#VAJE-01-(II)">&#182;</a></h1>
-</div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -11761,30 +11758,44 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">random</span> <span class="k">as</span> <span class="nn">rd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">rc</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+</pre></div>
 
+</div>
+</div>
+</div>
 
-<span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Programski jezik Python, v kolikor sami ne določimo za kakšno vrsto spremenljivke gre, le to določi sam. Tip določene spremenljivke lahko preverimo z ukazom type(x), kot je to prikazano v spodnji celici.</p>
 
-<span class="n">N</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">M</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">],</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">line</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-
-<span class="c1"># initialization function: plot the background of each frame</span>
-
-
-<span class="c1"># animation function. This is called sequentially</span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="n">M</span><span class="p">[</span><span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span><span class="o">+=</span><span class="mi">1</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">line</span><span class="p">,)</span>
-
-<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span><span class="n">frames</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stavek</span><span class="o">=</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) V tem primeru je sprementljivka tipa&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">stavek</span><span class="p">))</span>
+<span class="n">stavek</span><span class="o">=</span><span class="s2">&quot;2&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2) V tem primeru je sprementljivka tipa&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">stavek</span><span class="p">))</span>
+<span class="n">stavek</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3) V tem primeru je sprementljivka tipa&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">stavek</span><span class="p">))</span>
+<span class="n">stavek</span><span class="o">=</span><span class="mf">2.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4) V tem primeru je sprementljivka tipa&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">stavek</span><span class="p">))</span>
+<span class="n">stavek</span><span class="o">=</span><span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5) V tem primeru je sprementljivka tipa&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">stavek</span><span class="p">))</span>
+<span class="n">stavek</span><span class="o">=</span><span class="s2">&quot;Danes je ponedeljek. Za pust sem se imel lepo. Pojedel sem kat nekaj krofov.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6) V tem primeru je sprementljivka tipa&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">stavek</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------------------------&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11795,351 +11806,368 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video width="432" height="288" controls autoplay loop>
-  <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAABC3G1kYXQAAAKuBgX//6rcRem9
-5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTQ4IHIyNzA1IDNmNWVkNTYgLSBILjI2NC9NUEVHLTQg
-QVZDIGNvZGVjIC0gQ29weWxlZnQgMjAwMy0yMDE2IC0gaHR0cDovL3d3dy52aWRlb2xhbi5vcmcv
-eDI2NC5odG1sIC0gb3B0aW9uczogY2FiYWM9MSByZWY9MyBkZWJsb2NrPTE6MDowIGFuYWx5c2U9
-MHgzOjB4MTEzIG1lPWhleCBzdWJtZT03IHBzeT0xIHBzeV9yZD0xLjAwOjAuMDAgbWl4ZWRfcmVm
-PTEgbWVfcmFuZ2U9MTYgY2hyb21hX21lPTEgdHJlbGxpcz0xIDh4OGRjdD0xIGNxbT0wIGRlYWR6
-b25lPTIxLDExIGZhc3RfcHNraXA9MSBjaHJvbWFfcXBfb2Zmc2V0PS0yIHRocmVhZHM9OSBsb29r
-YWhlYWRfdGhyZWFkcz0xIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFj
-ZWQ9MCBibHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJh
-bWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dvcD0wIHdl
-aWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MjUgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVz
-aD0wIHJjX2xvb2thaGVhZD00MCByYz1jcmYgbWJ0cmVlPTEgY3JmPTIzLjAgcWNvbXA9MC42MCBx
-cG1pbj0wIHFwbWF4PTY5IHFwc3RlcD00IGlwX3JhdGlvPTEuNDAgYXE9MToxLjAwAIAAAAi6ZYiE
-AC///vau/MsrRwuVLh1Ze7NR8uhJcv2IMH1oAAADAADVaeUGh2+CTd/ADBc3EgfaET0scl42mSEw
-IQNFxboT7ECzh7i+lkUfH67/Jh8j74bLf3JgQzyXZIFQ4zHIycAABXZly9Tc7tOxd15tDbNnFEPh
-qfdgZqEOr1N6lI4BdgOnOmofsd00hqouPs6KPNFqXPqEL6AH9IAChXxpyZzdDaJL72Xbu3mR6uMu
-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
-AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAABsAAAASAAAAAAACRlZHRzAAAAHGVsc3QA
-AAAAAAAAAQAAB9AAAAIAAAEAAAAABkhtZGlhAAAAIG1kaGQAAAAAAAAAAAAAAAAAADIAAABkAFXE
-AAAAAAAtaGRscgAAAAAAAAAAdmlkZQAAAAAAAAAAAAAAAFZpZGVvSGFuZGxlcgAAAAXzbWluZgAA
-ABR2bWhkAAAAAQAAAAAAAAAAAAAAJGRpbmYAAAAcZHJlZgAAAAAAAAABAAAADHVybCAAAAABAAAF
-s3N0YmwAAACzc3RzZAAAAAAAAAABAAAAo2F2YzEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABsAEg
-AEgAAABIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY//8AAAAxYXZj
-QwFkAB7/4QAYZ2QAHqzZQbCWhAAAAwAEAAADAZA8WLZYAQAGaOvjyyLAAAAAHHV1aWRraEDyXyRP
-xbo5pRvPAyPzAAAAAAAAABhzdHRzAAAAAAAAAAEAAABkAAABAAAAABRzdHNzAAAAAAAAAAEAAAAB
-AAAC+GN0dHMAAAAAAAAAXQAAAAEAAAIAAAAAAQAABAAAAAACAAABAAAAAAEAAAIAAAAAAQAABAAA
-AAACAAABAAAAAAMAAAIAAAAAAQAAAwAAAAABAAABAAAAAAEAAAUAAAAAAQAAAgAAAAABAAAAAAAA
-AAEAAAEAAAAAAQAABQAAAAABAAACAAAAAAEAAAAAAAAAAQAAAQAAAAABAAADAAAAAAEAAAEAAAAA
-AQAABQAAAAABAAACAAAAAAEAAAAAAAAAAQAAAQAAAAABAAADAAAAAAEAAAEAAAAAAQAABQAAAAAB
-AAACAAAAAAEAAAAAAAAAAQAAAQAAAAABAAACAAAAAAEAAAUAAAAAAQAAAgAAAAABAAAAAAAAAAEA
-AAEAAAAAAQAAAgAAAAABAAAEAAAAAAIAAAEAAAAAAQAAAgAAAAABAAAFAAAAAAEAAAIAAAAAAQAA
-AAAAAAABAAABAAAAAAEAAAUAAAAAAQAAAgAAAAABAAAAAAAAAAEAAAEAAAAAAQAABQAAAAABAAAC
-AAAAAAEAAAAAAAAAAQAAAQAAAAABAAAEAAAAAAIAAAEAAAAAAQAAAwAAAAABAAABAAAAAAEAAAIA
-AAAAAQAAAwAAAAABAAABAAAAAAEAAAQAAAAAAgAAAQAAAAABAAACAAAAAAEAAAUAAAAAAQAAAgAA
-AAABAAAAAAAAAAEAAAEAAAAAAQAABQAAAAABAAACAAAAAAEAAAAAAAAAAQAAAQAAAAABAAAFAAAA
-AAEAAAIAAAAAAQAAAAAAAAABAAABAAAAAAEAAAUAAAAAAQAAAgAAAAABAAAAAAAAAAEAAAEAAAAA
-AQAABQAAAAABAAACAAAAAAEAAAAAAAAAAQAAAQAAAAABAAAFAAAAAAEAAAIAAAAAAQAAAAAAAAAB
-AAABAAAAAAEAAAUAAAAAAQAAAgAAAAABAAAAAAAAAAEAAAEAAAAAAQAABQAAAAABAAACAAAAAAEA
-AAAAAAAAAQAAAQAAAAABAAACAAAAABxzdHNjAAAAAAAAAAEAAAABAAAAZAAAAAEAAAGkc3RzegAA
-AAAAAAAAAAAAZAAAC3AAAAHAAAAAXQAAAEYAAACVAAAA3AAAAFcAAAAyAAAAjgAAAJQAAACbAAAA
-4QAAADAAAAFeAAAAcAAAAEQAAABBAAABTgAAAGQAAABQAAAAOwAAARIAAAA/AAABVAAAAGEAAAAz
-AAAANwAAAU4AAABQAAAB9QAAAHYAAABAAAAAXwAAAUcAAAGuAAAAgQAAAFUAAABZAAAAmwAAATAA
-AABSAAAAPAAAAPEAAAHuAAAAWgAAADMAAAA2AAACBAAAAHoAAAA7AAAAQgAAAeAAAACUAAAAZAAA
-AFAAAAEeAAAATQAAACsAAADJAAAASwAAAPIAAADtAAAAOQAAAZ0AAAA9AAAANgAAANwAAAGWAAAA
-VwAAAC4AAAA2AAABSwAAAE8AAAAtAAAAOAAAAK0AAABBAAAAOAAAACcAAAFLAAAAQwAAADAAAAAu
-AAAAqAAAADwAAAAiAAAAKgAAAMQAAAArAAAAHAAAACIAAABGAAAAJwAAACAAAAAZAAAAhgAAACwA
-AAAZAAAAJQAAACUAAAAUc3RjbwAAAAAAAAABAAAALAAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhk
-bHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAA
-AABMYXZmNTcuNDEuMTAw
-">
-  Your browser does not support the video tag.
-</video>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>--------------------------------------------------
+1) V tem primeru je sprementljivka tipa &lt;class &#39;int&#39;&gt;
+2) V tem primeru je sprementljivka tipa &lt;class &#39;str&#39;&gt;
+3) V tem primeru je sprementljivka tipa &lt;class &#39;float&#39;&gt;
+4) V tem primeru je sprementljivka tipa &lt;class &#39;float&#39;&gt;
+5) V tem primeru je sprementljivka tipa &lt;class &#39;bool&#39;&gt;
+6) V tem primeru je sprementljivka tipa &lt;class &#39;str&#39;&gt;
+--------------------------------------------------
+</pre>
+</div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>V primeru 6 se je besedilo shranilo v spremenljivko kot tip string(str). Ta spremenljivka je sestavljena iz niza simbolov, do katerih lahko dostopamo glede na nihovo zaporedno mesto pojavaljanja.
+["D a n e s " " j e ...]
+["0 1 2 3 4  5  6 7 ...]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simbol, ki je na lokaciji 0 je enak -&gt; &quot;</span><span class="p">,</span><span class="n">stavek</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Simbol, ki je na lokaciji 0 je enak -&gt;  D
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Naslednji tip objekta, ki ga lahko uporabimo za shranjevanje podatkov je t.i. dictionary (dict). To vrsto spremenljivke iniciiramo z x={}. Dict so indeksirani s ključi (key). Ključ je lahko vsaka številka ali beseda. Kot primer določimo pogostop določene črke v zapisu, ki je shranjen v spremenljivki.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P</span><span class="o">=</span><span class="p">{}</span> <span class="c1">#dictionary</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stavek</span><span class="p">:</span> <span class="c1">#spremenljivka i iterativno zauzema vrednosti, ki jih vsebuje &quot;spremenljivka&quot;</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>   <span class="c1">#V kolikor je črka (i) že pristona v P, vrednost P[i] povečamo za 1</span>
+        <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>        <span class="c1">#V kolikor pa črka (i) ne obstaja, kot ključ v dict P, pa jo ustvarimo, in vrednost P(i) postavimo na 1</span>
+        <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Sedaj lahko izpišemo ključe in pripadajoče vrednosti v dict P</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>D 1
+a 4
+n 3
+e 13
+s 5
+  13
+j 4
+p 3
+o 5
+d 2
+l 4
+k 4
+. 3
+Z 1
+u 1
+t 2
+m 3
+i 1
+P 1
+r 1
+f 1
+v 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Če želimo prikazati urejen seznam pa</span>
+<span class="k">for</span> <span class="n">E</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">,</span><span class="n">P</span><span class="p">[</span><span class="n">E</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>e 13
+  13
+s 5
+o 5
+a 4
+j 4
+l 4
+k 4
+n 3
+p 3
+. 3
+m 3
+d 2
+t 2
+D 1
+Z 1
+u 1
+i 1
+P 1
+r 1
+f 1
+v 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>V naslednjem primeru prikažemo, kako lahko ustvarimo polje poljubne velikost-</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">10</span> <span class="c1">#NxN array</span>
+<span class="n">Matrika</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">],</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#ustvarimo array, kjer so vse celice enake 0</span>
+<span class="n">Matrika</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">],</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#ustvarimo array, kjer so vse celice enake 1</span>
+<span class="n">Matrika</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">],</span><span class="nb">int</span><span class="p">)</span><span class="o">*</span><span class="mi">7</span> <span class="c1">#ustvarimo array, kjer so vse celice enake 7</span>
+<span class="c1">#Do ij-tega elementa matrike dostopamo kot Matrika[i][j]</span>
+<span class="n">Matrika</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Matrika</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i=0,j=0,Matrika[i][j]=&quot;</span><span class="p">,</span><span class="n">Matrika</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i=5,j=5,Matrika[i][j]=&quot;</span><span class="p">,</span><span class="n">Matrika</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7 100   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]
+ [  7   7   7   7   7   7   7   7   7   7]]
+
+i=0,j=0,Matrika[i][j]= 7
+i=5,j=5,Matrika[i][j]= 100
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#seznam</span>
+<span class="n">seznam</span><span class="o">=</span><span class="p">[]</span><span class="c1">#Ustvarimo prazen seznam</span>
+<span class="n">dolzina</span><span class="o">=</span><span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#Generiramo naključno naravno število v intervalu [2,5]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">dolzina</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">temp</span><span class="o">=</span><span class="p">[]</span><span class="c1">#Ustvarimo prazen seznam</span>
+    <span class="n">stolpci</span><span class="o">=</span><span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#Generiramo naključno naravno število v intervalu [2,5]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">stolpci</span><span class="p">):</span>
+        <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1">#V seznam temp dodatmo naključno število</span>
+    <span class="n">seznam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="c1">#seznam temp, dodatmo v seznam</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span> <span class="c1">#izpis celotnega seznama</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#izpis prvega zapisa v seznamu</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[2, 5, 2], [4, 3, 5], [4, 4, 2, 3], [4, 2, 4, 3, 5]]
+5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Kadara želimo shraniti seznam v neko drugo spremenljivko, se moramo zavedati, da definicija A=B izzove, 
+da je A zmeraj enak B. Če torej Spremenimo eno celico v seznamu B, s tem spremenimo tudi isto celico v
+seznamu A.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">kopija</span><span class="o">=</span><span class="n">seznam</span> <span class="c1">#seznam shranim v novo spremenljivko kopija</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">kopija</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#Izpišemo prvo vrdnost v originalnem in kopiranem seznamu</span>
+<span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;:)&quot;</span> <span class="c1">#Spremenimo le prvo vrednost v ORIGINALNEM seznamu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">kopija</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="c1">#Izpišemo prvo vrdnost v originalnem in kopiranem seznamu</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2 2
+:) :)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Da se izognetmu temu uporabimo funkcijo knjižico copy.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">kopija</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">kopija</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#Izpišemo prvo vrdnost v originalnem in kopiranem seznamu</span>
+<span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">3333</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">kopija</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#Izpišemo prvo vrdnost v originalnem in kopiranem seznamu</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5 5
+3333 5
+</pre>
+</div>
 </div>
 
 </div>
