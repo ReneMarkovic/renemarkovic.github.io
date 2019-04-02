@@ -25,14 +25,14 @@ a:hover {
 }
 
 #header{
-	height: 150;
+	height: 250;
 	vertical-align: middle;
 	background-image: url("banner.png");
 	opacity: 0.5;
 	background-color: #66CCFF;
 	color: black;
 	text-align: center;
-	padding: 5px;
+	padding: 0px;
 }
 .titleh2{
 	/*color: white;*/
