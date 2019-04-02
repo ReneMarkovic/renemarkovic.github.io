@@ -28,7 +28,123 @@
 			<div >
 				</div class="column">
 				<div id="main">
-					
+<canvas id="myCanvas" width="1000" height="500">
+  Canvas not supported; please update your browser.
+</canvas>
+
+<script>
+    var mainCanvas = document.getElementById("myCanvas");
+    var mainContext = mainCanvas.getContext('2d');
+	var color=["red","blue","orange","green","yellow","pink"]
+    var circles = [];
+	var N=500;
+	var Distance=new Array(N);
+	var Fx=new Array(N);
+	var Fy=new Array(N);
+	for(var i=0;i<N;i++){
+		Distance[i]=new Array(N);
+		Fx[i]=new Array(N);
+		Fy[i]=new Array(N);
+	}
+	
+	
+    function Circle(radius, speed, width, xPos, yPos) {
+		this.radius = radius;
+		this.mass=radius;
+		this.speed = speed;
+		this.width = width;
+		this.xPos = xPos;
+		this.yPos = yPos;
+		this.opacity = 0.05 + Math.random() * 0.5;
+		this.color=color[Math.floor(Math.random()*6)];
+		this.counter = 0;
+		this.lineWidth = 2;
+		this.strokeStyle = 'black';
+		var signHelper = Math.floor(Math.random() * 2);
+ 
+		if (signHelper == 1) {
+			this.sign = -1;
+		} else {
+			this.sign = 1;
+		}
+    }
+	
+	Circle.prototype.update = function(Fx,Fy) {
+		this.speed
+		this.counter += this.sign * this.speed;
+ 
+		mainContext.beginPath();
+ 
+		mainContext.arc(this.xPos + Math.cos(this.counter / 100) * this.radius,
+		this.yPos + Math.sin(this.counter / 100) * this.radius,this.width,0,Math.PI * 2,false);
+ 
+		mainContext.closePath();
+		
+		mainContext.fillStyle = this.color;
+		mainContext.fill();
+    };
+	
+    function drawCircles(){
+		for (var i = 0; i < N; i++) {
+			var randomX = Math.round(Math.random() * 1000);
+			var randomY = Math.round(Math.random() * 500);
+			var speed = 0.2 + Math.random() * 3;
+			var size = 5 + Math.random() * 5;
+ 
+			var circle = new Circle(100, speed, size, randomX, randomY);
+			circles.push(circle);
+		}
+		draw();
+	}
+	
+	function dist(i,j){
+		var x1=circles[i].xPos;
+		var x2=circles[j].xPos;
+		var y1=circles[i].yPos;
+		var y2=circles[j].yPos;
+		return (Math.pow(x1-x2,2.0)+Math.pow(y1-y2,2.0));
+		
+	}
+	
+	function dx(i,j){
+		var x1=circles[i].xPos;
+		var x2=circles[j].xPos;
+		return (x1-x2);
+	}
+
+	function dy(i,j){
+		var y1=circles[i].yPos;
+		var y2=circles[j].yPos;
+		return (y1-y2);
+	}
+	
+    drawCircles();
+	
+	function draw() {
+		mainContext.clearRect(0, 0, 1000, 500);
+		for (var i = 0; i < circles.length; i++) {
+			var myCircle = circles[i];
+			myCircle.update();
+		}
+		for(var i = 0; i < circles.length; i++){
+			Distance[i][i]=0.0;
+			Fx[i]=0.0;
+			Fy[i]=0.0;
+			for(var j=i+1;j<circles.length; j++){
+				Distance[i][j]=dist(i,j);
+				Distance[j][i]=Distance[i][j];
+				Fx[i]+=circles[j].mass*dx(i,j)/Math.pow(Distance[i][j],3.0);
+				Fy[i]+=circles[j].mass*dy(i,j)/Math.pow(Distance[i][j],3.0);
+			}
+			Fy[i]=Fx[i]*circles[i].mass;
+			Fx[i]=Fy[i]*circles[i].mass;
+		}
+		requestAnimationFrame(draw);
+	}
+
+	draw();
+	
+</script>
 				</div>
 			</div>
 			<div id="footer">
