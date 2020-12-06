@@ -1,0 +1,53 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "file": "",
+    "link": "",
+    "text": "Rene Markovič"
+  },
+  "text": {
+    "more": "",
+    "intro": "Mreža raziskovalcev, ki so bili avtorji člankov, ki v svojem naslovu vsebujejo besedo covid. Velikost vozlišč odraža njihovo povezanost. Debelina povezave pa število člankov, pri katerem je bil par avtorjev sodeloval.",
+    "title": ""
+  },
+  "legend": {
+    "edgeLabel": "Skupna publikacija",
+    "colorLabel": "Veda1",
+    "nodeLabel": "Raziskovalec"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": "veda1",
+    "hoverBehavior": "dim"
+  },
+  "informationPanel": {
+    "groupByEdgeDirection": false,
+    "imageAttribute": false
+  },
+  "sigma": {
+    "drawingProperties": {
+      "defaultEdgeType": "curve",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd",
+      "activeFontStyle": "bold",
+      "defaultLabelColor": "#000",
+      "labelThreshold": 10,
+      "defaultLabelHoverColor": "#fff",
+      "fontStyle": "bold",
+      "hoverFontStyle": "bold",
+      "defaultLabelSize": 14
+    },
+    "graphProperties": {
+      "maxEdgeSize": 5,
+      "minEdgeSize": 0.2,
+      "minNodeSize": 1,
+      "maxNodeSize": 7
+    },
+    "mouseProperties": {
+      "maxRatio": 20,
+      "minRatio": 0.75
+    }
+  }
+}
